@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import * as p5 from 'p5';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DataService } from '../services/data.service';
@@ -11,23 +11,6 @@ import { DataService } from '../services/data.service';
 export class AantallenVisualizatieComponent implements OnInit {
   private p5;
   imgPath = '../../assets/img/';
-  // animals = {
-  //   chicken: {
-  //     img: `${this.imgPath}/chicken.png`,
-  //     size: 5,
-  //     getData: () => this.dataService.getDataQuery('aantal-vee', ['type', '==', 'Kippen'])
-  //   },
-  //   cow: {
-  //     img: `${this.imgPath}/cow.png`,
-  //     size: 20,
-  //     getData: () => this.dataService.getDataQuery('aantal-vee', ['type', '==', 'Koeien'])
-  //   },
-  //   pig: {
-  //     img: `${this.imgPath}/pig.png`,
-  //     size: 10,
-  //     getData: () => this.dataService.getDataQuery('aantal-vee', ['type', '==', 'Varkens'])
-  //   }
-  // };
 
   constructor(private dataService: DataService) {}
 
@@ -56,5 +39,11 @@ export class AantallenVisualizatieComponent implements OnInit {
       p.noStroke();
       p.plane(300);
     };
+  }
+
+  @HostListener('window:resize', ['$event'])
+  resize(e: Event) {
+    this.p5.height = window.innerHeight;
+    this.p5.width = window.innerWidth;
   }
 }
