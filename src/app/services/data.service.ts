@@ -16,6 +16,10 @@ export class DataService {
     return this.http.get(`../../assets/data/${fileName}`).toPromise() as Promise<Array<any>>;
   }
 
+  getDataCollection(collection: string): Promise<DocumentData> {
+    return this.db.firestore.collection(collection).get() as Promise<DocumentData>;
+  }
+
   getDataQuery(collection: string, query: [string, any, any]): Promise<DocumentData> {
     return this.db.firestore.collection(collection).where(query[0], query[1], query[2]).get() as Promise<DocumentData>;
   }

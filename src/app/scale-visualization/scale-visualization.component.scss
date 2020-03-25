@@ -1,0 +1,30 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: 6px 0 0 24px;
+}
+
+button {
+  appearance: none;
+  border: none;
+  padding: 12px 20px;
+  margin: 0 2px;
+  color: white;
+  background-color: rgba(#11318D, 1);
+  font-family: 'titling-gothic-fb';
+  font-size: 18px;
+  border-radius: 12px;
+  transition: background-color ease-in .1s;
+  cursor: pointer;
+
+
+  &.active {
+    pointer-events: none;
+    color: #11318D;
+    background-color: rgba(white, 1);
+  }
+
+  &:hover { background-color: rgba(#11318D, .8); }
+}

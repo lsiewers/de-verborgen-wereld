@@ -1,0 +1,17 @@
+<div class="overlay">
+  <p>per
+    <button (click)="setAmount(1)" [class.active]="showAmount === 1">1</button>
+    <button (click)="setAmount(3)" [class.active]="showAmount === 3">3</button>
+    <button (click)="setAmount(25)" [class.active]="showAmount === 25">25</button>
+    {{showAmount === 1 ? 'persoon' : 'personen'}} zijn er:
+  </p>
+
+  <ul>
+    <li>{{relativeAmounts.cows}} runderen</li>
+    <li>{{relativeAmounts.chicken}} kippen</li>
+    <li>{{relativeAmounts.pigs}} varkens</li>
+  </ul>
+</div>
+
+<div id="sketch-holder">
+</div>
